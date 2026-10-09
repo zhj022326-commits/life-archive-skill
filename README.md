@@ -1,2 +1,40 @@
-# life-archive-skill
-A personal life archive skill for AI agents
+# 人生档案 Skill
+
+可在支持 Agent Skills 的智能体中使用的个人档案工作流。用户显式调用且不带参数时默认归档当前对话；首次调用会先引导设置档案位置。访谈通过调用参数“访谈”启动。
+
+## 安装
+
+### 从 GitHub 安装到支持 `skills` CLI 的 Agent
+
+```bash
+npx skills add <GitHub 用户名>/<仓库名>
+```
+
+### 豆包工作
+
+在豆包工作里引用公开 GitHub 仓库并要求安装 `life-archive` 技能。安装后在技能列表中显式调用；如果宿主把“选中”与“执行”分成两个动作，需使用它的调用入口。
+
+## 使用
+
+- 显式空调用：归档当前对话。
+- 调用时附加“访谈”：启动人生访谈。
+
+首次调用时会询问档案保存位置。技能只写入用户确认的位置。云端运行环境必须能访问所选存储位置；它不能自动读写用户电脑上不可访问的本地盘符。
+
+## 数据
+
+本仓库只包含 Skill 指令、规则和空白模板，不包含任何个人档案。用户档案应保存在用户自己指定的位置，不要提交到本仓库。
+
+## 结构
+
+```text
+skills/life-archive/
+├── SKILL.md
+├── agents/openai.yaml
+├── references/
+└── assets/archive-template/
+```
+
+## 许可
+
+本仓库尚未附加开源许可证。发布者需在公开前决定是否授权他人复制、修改和再分发。
