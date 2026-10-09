@@ -7,12 +7,21 @@
 ### 从 GitHub 安装到支持 `skills` CLI 的 Agent
 
 ```bash
-npx skills add <GitHub 用户名>/<仓库名>
+npx skills add zhj022326-commits/life-archive-skill --skill life-archive --agent codex --global
 ```
+
+这条命令会把 `life-archive` 安装到 Codex 的用户级技能目录。安装后开启新的 Codex 会话。使用其他支持 `skills` CLI 的 Agent 时，可替换 `--agent` 参数；也可省略该参数并按 CLI 提示选择。
+
+### 手动安装
+
+1. 在本仓库点击 **Code → Download ZIP** 并解压。
+2. 将解压目录中的整个 `skills/life-archive/` 文件夹复制到目标 Agent 的技能目录。不要只复制 `SKILL.md`；`references/` 和 `assets/` 也要保留。
+3. Codex 默认的用户级位置是 `%USERPROFILE%\.codex\skills\life-archive\`。项目级安装可放在项目的 `.agents/skills/life-archive/`。其他 Agent 请使用其文档指定的技能目录。
+4. 确认最终路径中直接包含 `life-archive\SKILL.md`，不要多套一层 `skills/life-archive`；然后重启 Agent 或开启新会话。
 
 ### 豆包工作
 
-在豆包工作里引用公开 GitHub 仓库并要求安装 `life-archive` 技能。安装后在技能列表中显式调用；如果宿主把“选中”与“执行”分成两个动作，需使用它的调用入口。
+在豆包工作里通过其技能安装入口引用公开 GitHub 仓库，并选择 `life-archive`。若当前安装方式要求本地文件，则按上面的“手动安装”说明导入 `skills/life-archive/`。安装后在技能列表中显式调用；如果宿主把“选中”与“执行”分成两个动作，需使用它的调用入口。
 
 ## 使用
 
